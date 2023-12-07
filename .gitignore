@@ -1,2 +1,9 @@
 # Project exclude paths
 /spring-boot-projects/hibernate-examples/target/
+/.idea/compiler.xml
+/.idea/encodings.xml
+/.idea/hibernate-example-1.iml
+/.idea/misc.xml
+/.idea/jarRepositories.xml
+/.idea/modules.xml
+/.idea/vcs.xml

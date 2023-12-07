@@ -42,9 +42,9 @@ public class TestBootstrappingSession {
     emp.setFirstName("demo");
     emp.setLastName("user");
 
-    Assertions.assertNull(emp.getEmployeeId());
+    Assertions.assertNull(emp.getId());
     session.persist(emp);
-    Assertions.assertNotNull(emp.getEmployeeId());
+    Assertions.assertNotNull(emp.getId());
   }
 
   @Test
@@ -55,8 +55,8 @@ public class TestBootstrappingSession {
     emp.setFirstName("demo");
     emp.setLastName("user");
 
-    Assertions.assertNull(emp.getEmployeeId());
+    Assertions.assertNull(emp.getId());
     repository.save(emp);
-    Assertions.assertNotNull(emp.getEmployeeId());
+    Assertions.assertNotNull(emp.getId());
   }
 }

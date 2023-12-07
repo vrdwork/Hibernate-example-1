@@ -29,9 +29,9 @@ public class TestBootstrappingEntityManager {
     emp.setFirstName("demo");
     emp.setLastName("user");
 
-    Assertions.assertNull(emp.getEmployeeId());
+    Assertions.assertNull(emp.getId());
     em.persist(emp);
-    Assertions.assertNotNull(emp.getEmployeeId());
+    Assertions.assertNotNull(emp.getId());
   }
 
   @Test
@@ -41,8 +41,8 @@ public class TestBootstrappingEntityManager {
     emp.setFirstName("demo");
     emp.setLastName("user");
 
-    Assertions.assertNull(emp.getEmployeeId());
+    Assertions.assertNull(emp.getId());
     repository.save(emp);
-    Assertions.assertNotNull(emp.getEmployeeId());
+    Assertions.assertNotNull(emp.getId());
   }
 }

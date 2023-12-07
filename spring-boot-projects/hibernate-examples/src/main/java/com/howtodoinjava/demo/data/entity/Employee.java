@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "TBL_EMPLOYEE")
@@ -15,7 +17,7 @@ public class Employee implements Serializable {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column
-  private Integer employeeId;
+  private Integer id;
 
   @Column
   private String email;
@@ -26,12 +28,16 @@ public class Employee implements Serializable {
   @Column
   private String lastName;
 
-  public Integer getEmployeeId() {
-    return employeeId;
+  @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+  @JoinColumn(name = "employeeId")
+  private Set<Task> tasks = new HashSet<>();
+
+  public Integer getId() {
+    return id;
   }
 
-  public void setEmployeeId(Integer employeeId) {
-    this.employeeId = employeeId;
+  public void setId(Integer id) {
+    this.id = id;
   }
 
   public String getEmail() {
@@ -56,5 +62,22 @@ public class Employee implements Serializable {
 
   public void setLastName(String lastName) {
     this.lastName = lastName;
+  }
+  public Set<Task> getTasks() {
+    return tasks;
+  }
+  public void setTasks(Set<Task> tasks) {
+    this.tasks = tasks;
+  }
+
+  @Override
+  public String toString() {
+    return "Employee{" +
+            "id=" + id +
+            ", email='" + email + '\'' +
+            ", firstName='" + firstName + '\'' +
+            ", lastName='" + lastName + '\'' +
+            ", tasks=" + tasks +
+            '}';
   }
 }
